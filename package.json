@@ -86,7 +86,7 @@
   "peerDependencies": {},
   "packageManager": "yarn@1.22.19",
   "engines": {
-    "node": ">=12"
+    "node": ">=18"
   },
   "size-limit": [
     {
