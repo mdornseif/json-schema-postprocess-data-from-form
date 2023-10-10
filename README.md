@@ -13,7 +13,7 @@ Uses information from a [JSON-Schema](https://json-schema.org) to process the da
     ...            'properties': {
     ...                'ro': {'type': 'string', 'readOnly': True},
     ...                'rw': {'type': 'boolean'}}}
-    >>> removeReadonly(SCHEMA, {rw: 'TST10001', ro: true})
+    >>> removeReadonly(SCHEMA, {rw: 'TST10001', ro: True})
     {
       "rw": "TST10001"
     }
