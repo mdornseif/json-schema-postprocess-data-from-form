@@ -15,20 +15,18 @@ import unset from 'lodash.unset'
  * `null` values are removed so they are `undefined`.
  **/
 export function removeReadonly(schema: JSONSchema7, data: any): unknown {
-  const newData = structuredClone(data)
+  const newData: any = structuredClone(data)
 
   function callback(
-    sch,
+    sch: JSONSchema7,
     jsonPtr: string,
-    _root,
-    parentJsonPtr,
-    _parentKeyword,
-    _parentSchema,
-    indexProperty
+    _root: any,
+    parentJsonPtr: string | undefined,
+    _parentKeyword: any,
+    _parentSchema: any,
+    _indexProperty: any
   ): void {
     if (sch?.readOnly) {
-      console.log(parentJsonPtr, jsonPtr, indexProperty, sch?.readOnly)
-
       // um Nesting korrekt abzubilden müssten wir jsonPtr auseindander pflücken
       const accessor = jsonPtr.replace(/\/properties\//g, '.').replace(/^\./, '')
       unset(newData, accessor)

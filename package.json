@@ -75,6 +75,7 @@
     "@tsconfig/recommended": "^1.0.2",
     "@types/lodash.merge": "^4.6.7",
     "@types/lodash.mergewith": "^4.6.7",
+    "@types/lodash.unset": "^4.5.7",
     "dts-cli": "^1.6.3",
     "husky": "^8.0.3",
     "lint-staged": "^13.1.2",
