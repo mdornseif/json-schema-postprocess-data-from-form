@@ -1,0 +1,101 @@
+{
+  "name": "json-schema-remove-readonly-from-data",
+  "version": "1.0.5",
+  "keywords": [
+    "jsonschema",
+    "rjsf",
+    "react-json-schema-form"
+  ],
+  "homepage": "https://github.com/mdornseif/json-schema-remove-readonly-from-data/",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mdornseif/json-schema-remove-readonly-from-data.git"
+  },
+  "license": "MIT",
+  "author": "Dr. Maximillian Dornseif",
+  "main": "dist/index.js",
+  "module": "dist/json-schema-remove-readonly-from-data.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "analyze": "size-limit --why",
+    "build": "dts build",
+    "doc:build": "npx typedoc@0.23  --skipErrorChecking  src/index.ts",
+    "doc:publish": "npx gh-pages -m \"[ci skip] Updates\" -d docs",
+    "lint": "dts lint",
+    "prepare": "husky install",
+    "release": "npx standard-version",
+    "size": "size-limit",
+    "start": "dts watch",
+    "test": "TZ=utc vitest --passWithNoTests"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "dts lint"
+    }
+  },
+  "lint-staged": {
+    "*{css,scss,md,markdown,json,yaml,yml,graphql,html}": "prettier -w",
+    "*{js,jsx,ts,tsx}": [
+      "prettier -w",
+      "yarn lint --fix"
+    ],
+    "package.json": "sort-package-json"
+  },
+  "prettier": {
+    "printWidth": 110,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "release": {
+    "branches": [
+      "main",
+      "next"
+    ]
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "dependencies": {
+    "clean-deep": "^3.4.0",
+    "json-schema": "^0.4.0",
+    "json-schema-default": "^1.0.1",
+    "json-schema-empty-arrays": "^1.0.1",
+    "json-schema-empty-strings": "^1.0.5",
+    "lodash.merge": "^4.6.2",
+    "lodash.mergewith": "^4.6.2",
+    "lodash.unset": "^4.5.2"
+  },
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^8.2.4",
+    "@tsconfig/recommended": "^1.0.2",
+    "@types/lodash.merge": "^4.6.7",
+    "@types/lodash.mergewith": "^4.6.7",
+    "dts-cli": "^1.6.3",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.2",
+    "size-limit": "^8.2.4",
+    "tslib": "^2.5.0",
+    "typescript": "^4.9.5",
+    "vitest": "^0.29.1"
+  },
+  "peerDependencies": {},
+  "packageManager": "yarn@1.22.19",
+  "engines": {
+    "node": ">=12"
+  },
+  "size-limit": [
+    {
+      "limit": "10 KB",
+      "path": "dist/json-schema-remove-readonly-from-data.cjs.production.min.js"
+    },
+    {
+      "limit": "10 KB",
+      "path": "dist/json-schema-remove-readonly-from-data.esm.js"
+    }
+  ]
+}
