@@ -9,10 +9,13 @@ Removes `readOnly` fields from data as defined by a json-schema. Often needed be
 Uses information from a [JSON-Schema](https://json-schema.org) to process the data.
 
 ```py
+    >>> import {removeReadonly} from 'json-schema-remove-readonly-from-data'
+
     >>> SCHEMA = { 'type': 'object',
     ...            'properties': {
     ...                'ro': {'type': 'string', 'readOnly': True},
     ...                'rw': {'type': 'boolean'}}}
+
     >>> removeReadonly(SCHEMA, {rw: 'TST10001', ro: True})
     {
       "rw": "TST10001"
